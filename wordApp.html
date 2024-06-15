@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordApp</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        
+    }
+    body{
+        height: 100vh;
+       
+        background: linear-gradient(#23a6d5,#23d5ab);
+    }
+    .header{
+        text-align: center;
+        font-weight: 600;
+        font-size: 40px;
+        color: white;
+        font-weight: 800;
+        margin: 30px 0;
+        padding-top: 20px;
+    }
+    .wraper{
+        width: 500px;
+        
+        margin: 0 auto;
+        position: relative;
+    }
+    .container{
+        background-color: rgba(255,255,255,0.3);
+        padding: 30px;
+        border-radius: 8px;
+        
+    }
+    textarea{
+        width: 100%;
+        height: 400px;
+        padding: 20px;
+        resize: none;
+        outline: none;
+        border: 2px solid #23a6d5;
+        color: black;
+        border-radius: 5px;
+        background-color: rgba(255,255,255,0.6);
+    }
+    .count{
+        width: 60%;
+        padding: 30px;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+         background-color: #0e101a;
+         position: absolute;
+         bottom: -30px;
+         left: 50%;
+         transform: translateX(-50%);
+         color: white;
+    }
+
+    .count h4{
+        font-size: 28px;
+    }
+    .count p{
+        font-size: 20px;
+        color: #a0a0c0;
+    }
+</style>
+<body>
+    <div class="header">Word and Character Count</div>
+
+    <div class="wraper">
+        <div class="container">
+            <textarea name="" id="text" rows="10" placeholder="Enter the text"></textarea>
+        </div>
+        <div class="count">
+            <div >
+                <h4 id="wcount">0</h4>
+                <p>Words</p>
+            </div>
+            <div >
+                <h4 id="ccount">0</h4>
+                <p>Characters</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let text=document.getElementById("text");
+        let wcount=document.getElementById("wcount");
+        let ccount=document.getElementById("ccount");
+        let content=''
+        text.addEventListener('input',
+        ()=>{
+            content=text.value;
+            ccount.innerHTML=content.length;
+            let t=content.trim()
+            let words=t.split(/\s/);
+            wcount.innerHTML=words.length
+        })
+    </script>
+</body>
+</html>
